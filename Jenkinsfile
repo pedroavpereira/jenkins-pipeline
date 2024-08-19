@@ -48,7 +48,7 @@ pipeline{
 				}
 			}
 		}
-		state("Compile"){
+		stage("Compile"){
 			steps{
 				sh "mvn clean compile"
 			}
