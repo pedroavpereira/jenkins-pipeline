@@ -58,6 +58,30 @@ pipeline{
 				sh "mvn test"
 			}
 		}
+		stage("Package"){
+			steps{
+				sh "mvn package -DskipTests"
+			}
+		}
+		stage("Build Docker Image"){
+			steps{
+				// "docker build -t pedroavpereiradev/currency-exchange-devops:$env.BUILD_TAG"
+				script{
+					dockerImage = docker.build("docker build -t pedroavpereiradev/currency-exchange-devops:${env.BUILD_TAG}")
+				}
+
+			}
+		}
+		stage("Push Docker Image"){
+			steps{
+					script{
+						docker.withRegistry("","docker-hub"){
+							dockerImage.push()
+							dockerImage.push("latest")
+						}
+					}
+			}
+		}
 		stage("Integration Test"){
 			steps{
 				echo "Integration Test"
