@@ -24,6 +24,11 @@ pipeline{
 			steps{
 				echo "Build"
 			}
+			post{
+				always{
+					echo "I run at the end of the building stage"
+				}
+			}
 		}
 		stage("Test"){
 			steps{
