@@ -33,7 +33,7 @@ pipeline{
 				echo "Build Number: $env.BUILD_NUMBER"
 				echo "Build ID: $env.BUILD_ID"
 				echo "Build Tag: $env.BUILD_TAG"
-				echo "Build URL: $env.Buid_URL"
+				echo "Build URL: $env.Build_URL"
 				echo "JOB NAME: $env.JOB_NAME"
 			}
 			post{
