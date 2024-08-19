@@ -32,6 +32,8 @@ pipeline{
 				echo "Path: $PATH"
 				echo "Build Number: $env.BUILD_NUMBER"
 				echo "Build ID: $env.BUILD_ID"
+				echo "Build URL: $env.Buid_URL"
+				echo "JOB NAME: $env.JOB_NAME"
 			}
 			post{
 				always{
